@@ -28,6 +28,4 @@ Contributing
 To contribute to the Toffee-system project, fork the repository on GitHub and make your changes in a new branch. Once you've made your changes, submit a pull request to merge your branch with the main branch.
 
 License
-The Toffee-system project is licensed under the Cairo Universit License (Not Currently ):).
-
--
+The Toffee-system project is licensed under the Cairo Universit License (Not Currently ): )
