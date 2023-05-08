@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sw_ass3;
+package payment;
 
 /**
  *
  * @author Boda_Tarek
  */
 public class Voucher {
-    int price;
-    String EXP;
-    String code;
+    private int price;
+    private String EXP;
+    private String code;
 
     public int getPrice() {
         return price;

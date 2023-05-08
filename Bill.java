@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sw_ass3;
+package payment;
 
 /**
  *
@@ -10,12 +10,14 @@ package com.mycompany.sw_ass3;
  */
 public class Bill {
     
-    int orderNO = 0;
-    float price;
-    String address;
-    String date;
-    String deliveryMan;
-    String deliveryManNO;
+    private int orderNO = 0;
+    private float price;
+    private String address;
+    private String date;
+    private String deliveryMan;
+    private String deliveryManNO;
+
+    
 
     public Bill(){
         orderNO++;

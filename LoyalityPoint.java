@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sw_ass3;
+package payment;
 
 /**
  *
@@ -10,11 +10,11 @@ package com.mycompany.sw_ass3;
  */
 
 public class LoyalityPoint {
-    int points;
-    int id;
-    int priceOfPoints;
-    String EXP;
-    float calculatePoints;
+    private int points;
+    private int id;
+    private int priceOfPoints;
+    private String EXP;
+    private float calculatePoints;
 
     
     public int getPoints() {
@@ -60,5 +60,5 @@ public class LoyalityPoint {
     public void setCalculatePoints() {
         calculatePoints = points * priceOfPoints;
     }
-    
+      
 }

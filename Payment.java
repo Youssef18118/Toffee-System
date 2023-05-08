@@ -2,24 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.sw_ass3;
+package payment;
 import java.util.ArrayList; 
+import java.util.List;
+import Shopping.Cart;
+import Shopping.Item;
+
+
+
 
 /**
  *
  * @author Boda_Tarek
  */
 public class Payment {
-    String address;
-    Payment method;
-    float finalPrice;
-    float totalPrice;
-    int vouPrice;
-    int loyPoints;
-    Voucher vouchCode;
-    LoyalityPoint LoyaltyPoints;
-    Cart cart;
-
+    private String address;
+    private Payment method;
+    private float finalPrice;
+    private float totalPrice;
+    private int vouPrice;
+    private int loyPoints;
+    private Voucher vouchCode;
+    private LoyalityPoint LoyaltyPoints;
+    Cart cart = new Cart();
     
     public String getAddress() {
         return address;
@@ -41,17 +46,18 @@ public class Payment {
         return totalPrice;
     }
 
-    public void setTotalPrice(Item Items) {
-       //here will add for loop to calc all items price
+   public void setTotalPrice(List<Item> itemList) {
+        for (Item item : itemList) {
+            totalPrice += item.getPrice();
+        }
     } 
-
     public int getVouPrice() {
         return vouPrice;
     }
 
     public void setVouPrice(String code) {
         if(code == vouchCode.getCode()){
-            this.vouPrice = vouchCode.price;
+            this.vouPrice = vouchCode.getPrice();
         }
     }
 
@@ -60,13 +66,13 @@ public class Payment {
     }
 
     public void setLoyPoints(int loyPoints) {
-        if(loyPoints <= LoyaltyPoints.points){
+        if(loyPoints <= LoyaltyPoints.getPoints()){
             this.loyPoints = loyPoints;
         }   
     }
     
     public void updatePoints(int points){
-        LoyaltyPoints.points += points;
+        LoyaltyPoints.updatePoints(points);
     }
     
     public float getFinalPrice() {
@@ -74,6 +80,6 @@ public class Payment {
     }
     
     public void setFinalPrice() {
-        this.finalPrice = totalPrice - ( vouPrice + (loyPoints * LoyaltyPoints.priceOfPoints ) );
+        this.finalPrice = totalPrice - ( vouPrice + (loyPoints * LoyaltyPoints.getPriceOfPoints() ) );
     }
 }

@@ -1,3 +1,6 @@
+package Shopping;
+
+
 import java.util.ArrayList;
 public class Search {
     private ArrayList <Item> items ;
