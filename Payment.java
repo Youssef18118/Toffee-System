@@ -42,8 +42,8 @@ public class Payment {
     }
 
     public void setTotalPrice(Item Items) {
-        //here will add for loop to calc all items price
-    }
+       //here will add for loop to calc all items price
+    } 
 
     public int getVouPrice() {
         return vouPrice;

@@ -10,19 +10,28 @@ package com.mycompany.sw_ass3;
  */
 public class Bill {
     
-    int ordeNO;
+    int orderNO = 0;
     float price;
     String address;
     String date;
     String deliveryMan;
     String deliveryManNO;
 
+    public Bill(){
+        orderNO++;
+    }
+    
     public int getOrdeNO() {
-        return ordeNO;
+        return orderNO;
     }
 
-    public void setOrdeNO(int ordeNO) {
-        this.ordeNO = ordeNO;
+    public void setOrderNO(int orderNO) {
+        if(orderNO > 0){
+            this.orderNO = orderNO;
+        }else{
+            System.out.println("No Order Can be less than 1...");
+        }
+      
     }
 
     public float getPrice() {
@@ -30,7 +39,11 @@ public class Bill {
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        if(price > 0){
+            this.price = price;
+        }else{
+            System.out.println("No Price Can be less than 0...");
+        }
     }
 
     public String getAddress() {
