@@ -3,10 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package payment;
-import java.util.ArrayList; 
 import java.util.List;
-import Shopping.Cart;
-import Shopping.Item;
+import Shopping.*;
+import Users.*;
 
 
 
@@ -24,7 +23,7 @@ public class Payment {
     private int loyPoints;
     private Voucher vouchCode;
     private LoyalityPoint LoyaltyPoints;
-    Cart cart = new Cart();
+    private Cart cart = new Cart();
     
     public String getAddress() {
         return address;
@@ -81,5 +80,12 @@ public class Payment {
     
     public void setFinalPrice() {
         this.finalPrice = totalPrice - ( vouPrice + (loyPoints * LoyaltyPoints.getPriceOfPoints() ) );
+    }
+    
+    public boolean checkUser(user userx){
+        if(userx instanceof loggedUser){
+            return true;
+        }else
+            return false;
     }
 }
