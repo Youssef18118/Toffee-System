@@ -84,13 +84,19 @@ public class Payment {
         this.finalPrice = totalPrice - ( vouPrice + (loyPoints * LoyaltyPoints.getPriceOfPoints() ) );
     }
     
-    public boolean checkUser(user userx){
-        if(userx instanceof loggedUser){
+    //public boolean checkUser(user userx){
+    //    if(userx instanceof loggedUser){
+    //        return true;
+    //    }else
+    //        return false;
+    //}
+    
+    public boolean checkUser(loggedUser userx){
+        if(userx.getUserName()!=""){
             return true;
         }else
-            return false;
+           return false;
     }
-    
     
     public void setUserX(loggedUser userX) {
         this.userX.setID(userX.getID());
