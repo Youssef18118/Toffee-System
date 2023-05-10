@@ -17,7 +17,14 @@ public class loggedUser extends user {
     private String userName;
     private String password;
     private LoyalityPoint LoyalityPoints;
-
+    
+    public loggedUser() {
+        this.email = "";
+        this.phoneNO = "";
+        this.address = "";
+        this.userName = "";
+        this.password = "";
+    }
 
     public String getEmail() {
         return email;
