@@ -13,9 +13,14 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.ArrayList;
+
+
 import Shopping.Item;
 
 public class Database {
+    private ArrayList <Item> All_items = new ArrayList<>() ;
 
     private boolean checkFileExists( File file) {
         return file.exists() && file.isFile();
@@ -73,31 +78,15 @@ public class Database {
         }
         return password;
     }
+
+
     public void SaveData(Register reg){
         write_in_file(reg);
     }
 
 
-    public int getQuantity(String itemName){
-        int quantity = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader("Items.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(" ");
-                if (fields.length >= 8 && fields[0].equals(itemName)) {
-                    quantity = Integer.parseInt(fields[2]);
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error searching file: " + e.getMessage());
-        }
-        return quantity;
-    }
 
-
-    public ArrayList<Item> search(String query){
-        ArrayList<Item> result = new ArrayList<Item>();
+    public void load_items() {
         try (BufferedReader br = new BufferedReader(new FileReader("Items.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -110,20 +99,42 @@ public class Database {
                 String brand = parts[5];
                 String category = parts[6];
                 String description = "";
-                for(int i = 7 ; i<parts.length ; i++){
-                   description = description+parts[i]+" ";
+                for (int i = 7; i < parts.length; i++) {
+                    description = description + parts[i] + " ";
                 }
-
-
-                if (itemName.equalsIgnoreCase(query) || brand.equalsIgnoreCase(query)) {
-                    Item item = new Item(itemName, id, quantity, price, discountPercentage, brand, category,description);
-                    result.add(item);
-                }
+                Item item = new Item(itemName, id, quantity, price, discountPercentage, brand, category, description);
+                All_items.add(item);
             }
-        } catch (IOException e) {
-            System.out.println("Error searching file: " + e.getMessage());
-        }
+        }catch(IOException e){
+                System.out.println("Error searching file: " + e.getMessage());
+            }
+    }
+
+
+    public ArrayList<Item> search(String query){
+                ArrayList<Item> result = new ArrayList<Item>();
+                load_items();
+                for(Item item:All_items){
+                    if (item.getName().equalsIgnoreCase(query) || item.getBrand().equalsIgnoreCase(query)) {
+                        result.add(item);
+                    }
+                }
         return result;
+    }
+
+
+    public void add_to_Category(Map<String, ArrayList<Item>> CategoryMap){
+        load_items();
+        for(Item item:All_items){
+            if (CategoryMap.containsKey(item.getCategory())) {
+                CategoryMap.get(item.getCategory()).add(item);
+            } else {
+                ArrayList<Item> integerList = new ArrayList<>();
+                integerList.add(item);
+                CategoryMap.put(item.getCategory(), integerList);
+            }
+
+    }
     }
 
 
