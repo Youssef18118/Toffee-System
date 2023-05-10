@@ -8,7 +8,7 @@ import Users.*;
 
 
 public class Login {
-    private loggedUser userX;
+    private loggedUser userX = new loggedUser();
     private Database db = new Database();
     
     public void login(String username , String pass){
