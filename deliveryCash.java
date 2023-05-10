@@ -11,7 +11,7 @@ import Users.*;
  */
 public class deliveryCash {
     private String phoneNO;
-    private loggedUser userX;
+private loggedUser userX = new loggedUser();
 
     public String getPhoneNO() {
         return phoneNO;
