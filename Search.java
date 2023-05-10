@@ -9,7 +9,9 @@ public class Search {
     private ArrayList <Item> items ;
     private Database db = new Database();
 
-    public void DisplayResult(){
+
+
+    public void DisplayResult(ArrayList <Item> items){
         Formatter formatter = new Formatter();
         String line ;
         line = String.format("%53s", "").replace(" ", "-");
@@ -33,14 +35,14 @@ public class Search {
     //should work on items provided from DB
     public void Research(String query) {
         this.items = db.search(query);
-        DisplayResult();
+        DisplayResult(items);
     }
 
     public void SelectItem(String id){
         boolean found = false;
         for(Item item:items){
             if(id.equals(item.getID())){
-                System.out.println("ID: "+item.getID() + "\nName: " +item.getName() +"\nQuantity: "+item.getQuantity() +"\nPrice: "+ item.getPrice() +"\nDiscount percentage: "+item.getDiscountPercent()+"%\nBrand: " +item.getBrand() + "\nDescription : " +item.getDescription());
+                item.viewItem();
                 found = true;
             }
         }
