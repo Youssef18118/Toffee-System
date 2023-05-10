@@ -11,19 +11,20 @@ import payment.*;
  * @author Boda_Tarek
  */
 public class loggedUser extends user {
-    private String name;
+    private String email;
     private String phoneNO;
     private String address;
     private String userName;
     private String password;
     private LoyalityPoint LoyalityPoints;
 
-    public String getName() {
-        return name;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String name) {
+        this.email = email;
     }
 
     public String getPhoneNO() {
