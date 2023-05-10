@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package payment;
+import Users.*;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Bill {
     private String date;
     private String deliveryMan;
     private String deliveryManNO;
-
+    private loggedUser userX;
     
 
     public Bill(){
@@ -79,6 +80,18 @@ public class Bill {
     public void setDeliveryManNO(String deliveryManNO) {
         this.deliveryManNO = deliveryManNO;
     }
-    
-    
+
+    public user getUserX() {
+        return userX;
+    }
+
+    public void setUserX(loggedUser userX) {
+        this.userX.setID(userX.getID());
+        this.userX.setAddress(userX.getAddress());
+        this.userX.setEmail(userX.getEmail());
+        this.userX.setUserName(userX.getUserName());
+        this.userX.setPassword(userX.getPassword());
+        this.userX.setLoyalityPoints(userX.getLoyalityPoints());
+        this.userX.setPhoneNO(userX.getPhoneNO());
+    }
 }
