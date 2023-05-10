@@ -7,9 +7,9 @@ public class Item {
     private String Description;
     private String Name;
     private String Brand;
-    private int DiscountPercent;       // string ----> int
-    private Category Category;
-    private int quantity;             // add this line
+    private int DiscountPercent;
+    private String Category;
+    private int quantity;
     private Cart Cartobj;
 
 
@@ -20,8 +20,12 @@ public class Item {
         this.price = price;
         this.DiscountPercent = discountPercentage;
         this.Brand = brand;
-        // this.Category = category                difference types
+        this.Category = category;
         this.Description = description;
+    }
+
+    public String getCategory() {
+        return Category;
     }
 
     public double getPrice(){
@@ -51,26 +55,15 @@ public class Item {
     public int getQuantity() {
         return quantity;
     }
-    //Database should provide items
-    // public int getQuantitiy(){
-    //     return ID;
-    // }
 
 
     public void addItemToCard(Item Itemx){
         Cartobj.addItem(Itemx);
     }
 
-    public void viewItem(Item Itemx){
-        System.out.println("Name: " + Name + "ID: " + ID + " price: " + price + "Brand: " + Brand + "Category: " );
+    public void viewItem(){
+        System.out.println("ID: "+this.getID() + "\nName: " +this.getName() +"\nQuantity: "+this.getQuantity() +"\nPrice: "+ this.getPrice() +"\nDiscount percentage: "+this.getDiscountPercent()+"%\nBrand: " +this.getBrand() + "\nDescription : " +this.getDescription());
 
     }
-
-//
-//    public void AddToCategory(String name, int ID){
-//        Categry.setCategoryName(name, ID);
-//    }
-
-
 
 }
