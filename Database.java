@@ -1,12 +1,9 @@
 package Register_Login;
 
-
 /**
  *
  * @author Aya_Ashraf
  */
-
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,35 +13,32 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.ArrayList;
 
-
 import Shopping.Item;
 
 public class Database {
-    private ArrayList <Item> All_items = new ArrayList<>() ;
 
-    private boolean checkFileExists( File file) {
+    private ArrayList<Item> All_items = new ArrayList<>();
+
+    private boolean checkFileExists(File file) {
         return file.exists() && file.isFile();
     }
 
-
-    private void write_in_file(Register reg){
+    private void write_in_file(Register reg) {
         File file = new File("UserData.txt");
-        if(checkFileExists(file)) {
+        if (checkFileExists(file)) {
             try {
-                FileWriter writer = new FileWriter(file , true);
-                writer.write(reg.getUsername() + " " + reg.getEmail() + " " + reg.getPhone() + " " + reg.getAddress()+" " + reg.getPass()+"\n");
+                FileWriter writer = new FileWriter(file, true);
+                writer.write(reg.getUsername() + " " + reg.getEmail() + " " + reg.getPhone() + " " + reg.getAddress() + " " + reg.getPass() + "\n");
                 writer.close();
             } catch (IOException e) {
                 System.out.println("Error writing to file.");
             }
-        }
-        else{
+        } else {
             System.out.println("cannot open file");
         }
     }
 
-
-    public boolean FindUser(String username){
+    public boolean FindUser(String username) {
         boolean found = false;
         try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
             String line;
@@ -61,8 +55,7 @@ public class Database {
         return found;
     }
 
-
-    public String FindPass(String username){
+    public String FindPass(String username) {
         String password = "";
         try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
             String line;
@@ -79,12 +72,60 @@ public class Database {
         return password;
     }
 
-
-    public void SaveData(Register reg){
-        write_in_file(reg);
+    public String FindAddress(String username) {
+        String address = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(" ");
+                if (fields.length >= 5 && fields[0].equals(username)) {
+                    address = fields[3];
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error searching file: " + e.getMessage());
+        }
+        return address;
     }
 
+    public String FindEmail(String username) {
+        String email = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(" ");
+                if (fields.length >= 5 && fields[0].equals(username)) {
+                    email = fields[1];
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error searching file: " + e.getMessage());
+        }
+        return email;
+    }
 
+    public String FindPhone(String username) {
+        String phone = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(" ");
+                if (fields.length >= 5 && fields[0].equals(username)) {
+                    phone = fields[2];
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error searching file: " + e.getMessage());
+        }
+        return phone;
+    }
+
+    public void SaveData(Register reg) {
+        write_in_file(reg);
+    }
 
     public void load_items() {
         try (BufferedReader br = new BufferedReader(new FileReader("Items.txt"))) {
@@ -105,27 +146,25 @@ public class Database {
                 Item item = new Item(itemName, id, quantity, price, discountPercentage, brand, category, description);
                 All_items.add(item);
             }
-        }catch(IOException e){
-                System.out.println("Error searching file: " + e.getMessage());
-            }
+        } catch (IOException e) {
+            System.out.println("Error searching file: " + e.getMessage());
+        }
     }
 
-
-    public ArrayList<Item> search(String query){
-                ArrayList<Item> result = new ArrayList<Item>();
-                load_items();
-                for(Item item:All_items){
-                    if (item.getName().equalsIgnoreCase(query) || item.getBrand().equalsIgnoreCase(query)) {
-                        result.add(item);
-                    }
-                }
+    public ArrayList<Item> search(String query) {
+        ArrayList<Item> result = new ArrayList<Item>();
+        load_items();
+        for (Item item : All_items) {
+            if (item.getName().equalsIgnoreCase(query) || item.getBrand().equalsIgnoreCase(query)) {
+                result.add(item);
+            }
+        }
         return result;
     }
 
-
-    public void add_to_Category(Map<String, ArrayList<Item>> CategoryMap){
+    public void add_to_Category(Map<String, ArrayList<Item>> CategoryMap) {
         load_items();
-        for(Item item:All_items){
+        for (Item item : All_items) {
             if (CategoryMap.containsKey(item.getCategory())) {
                 CategoryMap.get(item.getCategory()).add(item);
             } else {
@@ -134,8 +173,7 @@ public class Database {
                 CategoryMap.put(item.getCategory(), integerList);
             }
 
+        }
     }
-    }
-
 
 }
