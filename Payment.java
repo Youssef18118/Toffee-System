@@ -24,7 +24,7 @@ public class Payment {
     private Voucher vouchCode;
     private LoyalityPoint LoyaltyPoints;
     private Cart cart = new Cart();
-    private loggedUser userX;
+    private loggedUser userX = new loggedUser();
     
     
     public String getAddress() {
