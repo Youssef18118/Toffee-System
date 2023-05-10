@@ -16,7 +16,7 @@ public class LoyalityPoint {
     private int priceOfPoints;
     private String EXP;
     private float calculatePoints;
-    private loggedUser userX;
+    private loggedUser userX = new loggedUser();
     
     public int getPoints() {
         return points;
