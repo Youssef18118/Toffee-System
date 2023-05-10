@@ -1,0 +1,30 @@
+CandyBar 1001 500 5.50 5 Cadbury Chocolate Delicious chocolate bar
+KitKat 1002 700 6.25 2 Nestle Chocolate Classic chocolate wafer
+Hershey 1003 800 7.00 0 Hershey's Chocolate Rich and creamy chocolate
+Skittles 1004 1000 8.75 6 Skittles Candy Fruity and colorful candy
+M&M 1005 900 9.50 3 Mars Candy Iconic chocolate candy
+Haribo 1006 600 12.00 0 Haribo Candy Gummy and chewy candy
+Twizzlers 1007 400 13.50 4 Twizzlers Candy Licorice twists
+JellyBelly 1008 1200 15.00 0 Jelly Belly Candy Jelly beans in various flavors
+Snickers 1009 650 17.50 0 Mars Chocolate Crunchy peanut butter center with chocolate and caramel
+Lindt 1010 300 20.00 0 Lindt Chocolate Swiss chocolate with various fillings
+Reese's 1011 550 22.50 0 Hershey's Chocolate Peanut butter and chocolate combination
+Toblerone 1012 250 25.00 5 Toblerone Chocolate Swiss chocolate with nougat and almonds
+Galaxy 1013 450 27.50 0 Mars Chocolate Smooth and creamy chocolate
+Maltesers 1014 850 30.00 0 Mars Chocolate Chocolate-covered malt balls
+Milka 1015 200 32.50 0 Milka Chocolate Milk chocolate with various fillings
+Kinder 1016 350 35.00 10 Ferrero Chocolate Milk chocolate with a surprise toy inside
+Bounty 1017 750 37.50 10 Mars Chocolate Coconut-filled chocolate bar
+FerreroRocher 1018 150 40.00 6 Ferrero Chocolate Hazelnut-filled chocolate truffle
+Ghirardelli 1019 500 42.50 0 Ghirardelli Chocolate Premium chocolate with various fillings
+WonkaNerds 1020 1100 45.00 0 Wonka Candy Tangy and crunchy candy
+SourPatchKids 1021 950 47.50 0 Sour Patch Candy Sour and sweet gummy candy
+MilkyWay 1022 600 50.00 15 Mars Chocolate Chocolate-covered nougat bar
+Butterfinger 1023 400 52.50 12 Nestle Chocolate Crispy peanut butter center covered in chocolate
+Trolli 1024 900 55.00 0 Trolli Candy Gummy and chewy candy
+Whoppers 1025 700 57.50 10 Hershey's Chocolate Chocolate-covered malted milk balls
+CadburyEgg 1026 1200 60.00 15 Cadbury Chocolate Milk chocolate egg with fondant filling
+HersheyKiss 1027 800 62.50 0 Hershey's Chocolate Small, bite-sized chocolate kisses
+RitterSport 1028 300 65.00 0 Ritter Sport Chocolate German chocolate with various fillings
+NestleCrunch 1029 550 67.50 15 Nestle Chocolate Crispy rice pieces covered in chocolate
+Twix 1030 650 70.00 20 Mars Chocolate Chocolate and caramel bar with a crunchy biscuit base
