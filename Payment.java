@@ -24,6 +24,8 @@ public class Payment {
     private Voucher vouchCode;
     private LoyalityPoint LoyaltyPoints;
     private Cart cart = new Cart();
+    private loggedUser userX;
+    
     
     public String getAddress() {
         return address;
@@ -87,5 +89,16 @@ public class Payment {
             return true;
         }else
             return false;
+    }
+    
+    
+    public void setUserX(loggedUser userX) {
+        this.userX.setID(userX.getID());
+        this.userX.setAddress(userX.getAddress());
+        this.userX.setEmail(userX.getEmail());
+        this.userX.setUserName(userX.getUserName());
+        this.userX.setPassword(userX.getPassword());
+        this.userX.setLoyalityPoints(userX.getLoyalityPoints());
+        this.userX.setPhoneNO(userX.getPhoneNO());
     }
 }
