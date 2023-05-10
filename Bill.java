@@ -17,7 +17,7 @@ public class Bill {
     private String date;
     private String deliveryMan;
     private String deliveryManNO;
-    private loggedUser userX;
+    private loggedUser userX = new loggedUser();
     
 
     public Bill(){
