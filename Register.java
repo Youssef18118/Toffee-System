@@ -13,6 +13,7 @@ public class Register {
     private String address;
     private String pass;
     private String email;
+    private int loyalty =0;
     private Database db = new Database();
 
 
@@ -74,6 +75,9 @@ public class Register {
     public String getEmail() {
         return email;
     }
+    public int getLoyalty() {
+        return loyalty;
+    }
 
 
     //setters
@@ -93,8 +97,11 @@ public class Register {
     public void setPass(String pass) {
         this.pass = pass;
     }
+    public void setLoyalty(int loyalty) {
+        this.loyalty = loyalty;
+    }
 
-
+    
     public void register(String name , String phone , String email, String address  , String pass , String Cpass){
         Checker check = new Checker();
         int valid = 0;
