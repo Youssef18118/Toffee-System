@@ -15,16 +15,20 @@ public class Login {
        Checker check = new Checker();
        if(check.identical(username , pass)){
            System.out.println("Successfully login , hello " + username);
-           userX.setUserName(username);
-           userX.setPassword(pass);
-           userX.setAddress(db.FindAddress(username));
-           userX.setEmail(db.FindEmail(username));
-           userX.setPhoneNO(db.FindPhone(username));
+           setUserX(db.getUserX());
        }
        else{
            System.out.println("invalid username or password");
        }
     }
 
-
+    public void setUserX(loggedUser userX) {
+        this.userX.setID(userX.getID());
+        this.userX.setAddress(userX.getAddress());
+        this.userX.setEmail(userX.getEmail());
+        this.userX.setUserName(userX.getUserName());
+        this.userX.setPassword(userX.getPassword());
+        this.userX.setLoyalityPoints(userX.getLoyalityPoints());
+        this.userX.setPhoneNO(userX.getPhoneNO());
+    }
 }
