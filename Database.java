@@ -14,10 +14,14 @@ import java.util.Map;
 import java.util.ArrayList;
 
 import Shopping.Item;
+import Users.loggedUser;
+
 
 public class Database {
 
     private ArrayList<Item> All_items = new ArrayList<>();
+    private loggedUser userX = new loggedUser();
+
 
     private boolean checkFileExists(File file) {
         return file.exists() && file.isFile();
@@ -28,7 +32,7 @@ public class Database {
         if (checkFileExists(file)) {
             try {
                 FileWriter writer = new FileWriter(file, true);
-                writer.write(reg.getUsername() + " " + reg.getEmail() + " " + reg.getPhone() + " " + reg.getAddress() + " " + reg.getPass() + "\n");
+                writer.write(reg.getUsername() + " " + reg.getEmail() + " " + reg.getPhone() + " " + reg.getAddress() + " " + reg.getPass() + " " + reg.getLoyalty() + "\n");
                 writer.close();
             } catch (IOException e) {
                 System.out.println("Error writing to file.");
@@ -44,8 +48,10 @@ public class Database {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] fields = line.split(" ");
-                if (fields.length >= 5 && fields[0].equals(username)) {
+                if (fields.length >= 6 && fields[0].equals(username)) {
                     found = true;
+                    int f5 =Integer.parseInt(fields[5]);  
+                    setUserX(1,fields[0],fields[1],fields[2],fields[3],fields[4],f5);
                     break;
                 }
             }
@@ -53,74 +59,6 @@ public class Database {
             System.out.println("Error searching file: " + e.getMessage());
         }
         return found;
-    }
-
-    public String FindPass(String username) {
-        String password = "";
-        try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(" ");
-                if (fields.length >= 5 && fields[0].equals(username)) {
-                    password = fields[4];
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error searching file: " + e.getMessage());
-        }
-        return password;
-    }
-
-    public String FindAddress(String username) {
-        String address = "";
-        try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(" ");
-                if (fields.length >= 5 && fields[0].equals(username)) {
-                    address = fields[3];
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error searching file: " + e.getMessage());
-        }
-        return address;
-    }
-
-    public String FindEmail(String username) {
-        String email = "";
-        try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(" ");
-                if (fields.length >= 5 && fields[0].equals(username)) {
-                    email = fields[1];
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error searching file: " + e.getMessage());
-        }
-        return email;
-    }
-
-    public String FindPhone(String username) {
-        String phone = "";
-        try (BufferedReader br = new BufferedReader(new FileReader("UserData.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(" ");
-                if (fields.length >= 5 && fields[0].equals(username)) {
-                    phone = fields[2];
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error searching file: " + e.getMessage());
-        }
-        return phone;
     }
 
     public void SaveData(Register reg) {
@@ -175,5 +113,19 @@ public class Database {
 
         }
     }
+    
+    public void setUserX(int id,String userName,String email,String phone,String address,String pass,int loy) {
+        this.userX.setID(id);
+        this.userX.setUserName(userName);
+        this.userX.setEmail(email);
+        this.userX.setPhoneNO(phone);
+        this.userX.setAddress(address);
+        this.userX.setPassword(pass);
+        this.userX.getLoyalityPoints().setPoints(loy);
+        
+    }
 
+    public loggedUser getUserX() {
+        return userX;
+    }
 }
