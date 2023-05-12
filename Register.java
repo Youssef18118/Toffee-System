@@ -1,11 +1,5 @@
 package Register_Login;
 
-/**
- *
- * @author Aya_Ashraf
- */
-
-
 public class Register {
     private String username;
     private String phone;
