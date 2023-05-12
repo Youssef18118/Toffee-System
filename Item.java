@@ -57,9 +57,9 @@ public class Item {
     }
 
 
-    public void addItemToCard(Item Itemx){
-        Cartobj.addItem(Itemx);
-    }
+//     public void addItemToCard(Item Itemx){
+//         Cartobj.addItem(Itemx);
+//     }
 
     public void viewItem(){
         System.out.println("ID: "+this.getID() + "\nName: " +this.getName() +"\nQuantity: "+this.getQuantity() +"\nPrice: "+ this.getPrice() +"\nDiscount percentage: "+this.getDiscountPercent()+"%\nBrand: " +this.getBrand() + "\nDescription : " +this.getDescription());
