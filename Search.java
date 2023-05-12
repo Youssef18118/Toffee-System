@@ -1,15 +1,12 @@
 package Shopping;
-
+import TSystem.*;
 
 import java.util.ArrayList;
 import java.util.Formatter;
-import Register_Login.Database;
 
 public class Search {
     private ArrayList <Item> items ;
     private Database db = new Database();
-
-
 
     public void DisplayResult(ArrayList <Item> items){
         Formatter formatter = new Formatter();

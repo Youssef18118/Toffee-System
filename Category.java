@@ -1,7 +1,6 @@
 package Shopping;
+import TSystem.*;
 
-
-import Register_Login.Database;
 
 import java.util.ArrayList;
 import java.util.HashMap;

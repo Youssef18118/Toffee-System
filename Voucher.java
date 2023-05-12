@@ -1,5 +1,5 @@
-
 package payment;
+import Users.*;
 
 public class Voucher {
     private int price;
