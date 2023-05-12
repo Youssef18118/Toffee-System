@@ -1,10 +1,6 @@
-package Register_Login;
+package TSystem;
 
-/**
- *
- * @author Aya_Ashraf
- */
-
+import TSystem.Database;
 
 public class Checker {
     private boolean available;
@@ -48,11 +44,10 @@ public class Checker {
         return password;
     }
 
-
-
     public boolean identical(String username , String password){
         if(db.FindUser(username)){
-            if(Decryption(db.FindPass(username)).equals(password)){
+            String savedPass = db.getUserX().getPassword();
+            if(Decryption(savedPass).equals(password)){
                 return true;
             }
         }
@@ -130,12 +125,13 @@ public class Checker {
         return phone.matches(validPhone);
     }
 
-
-    public boolean checkOTP(String responseOTP , String OTP){
-        return false;
-    }
+    
     public boolean checkAvailabe(){
         // here we must check on available
         return false;
+    }
+    
+    public boolean checkOTP(String responseOTP,String OTP){
+        return (responseOTP == null ? OTP == null : responseOTP.equals(OTP));
     }
 }
