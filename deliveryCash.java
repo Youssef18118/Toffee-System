@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package payment;
 import Users.*;
 
-/**
- *
- * @author Boda_Tarek
- */
 public class deliveryCash {
     private String phoneNO;
 private loggedUser userX = new loggedUser();
