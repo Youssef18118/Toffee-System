@@ -1,12 +1,6 @@
 package Register_Login;
 import Users.*;
 
-/**
- *
- * @author Aya_Ashraf
- */
-
-
 public class Login {
     private loggedUser userX = new loggedUser();
     private Database db = new Database();
