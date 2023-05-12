@@ -6,15 +6,16 @@ public class Login {
     private loggedUser userX = new loggedUser();
     private Database db = new Database();
     
-    public void login(String username , String pass){
-       Checker check = new Checker();
-       if(check.identical(username , pass)){
-           System.out.println("Successfully login , hello " + username);
-           setUserX(db.getUserX());
-       }
-       else{
-           System.out.println("invalid username or password");
-       }
+    public boolean login(String username, String pass) {
+        Checker check = new Checker();
+        if (check.identical(username, pass)) {
+            System.out.println("Successfully logged in. Hello, " + username);
+            setUserX(check.getUserX());
+            return true;
+        } else {
+            System.out.println("Invalid username or password");
+            return false;
+        }
     }
 
     public void setUserX(loggedUser userX) {
@@ -25,5 +26,9 @@ public class Login {
         this.userX.setPassword(userX.getPassword());
         this.userX.setLoyalityPoints(userX.getLoyalityPoints());
         this.userX.setPhoneNO(userX.getPhoneNO());
+    }
+    
+    public loggedUser getUserX() {
+        return userX;
     }
 }

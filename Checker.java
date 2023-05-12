@@ -1,11 +1,21 @@
 package TSystem;
 
 import TSystem.Database;
+import Users.loggedUser;
 
 public class Checker {
     private boolean available;
     private Database db = new Database();
+    private loggedUser userX = new loggedUser();
 
+    public loggedUser getUserX() {
+        return userX;
+    }
+
+    public void setUserX(loggedUser userX) {
+        this.userX = userX;
+    }
+    
     private void check_ascii(int ascii_before, int ascii_after) {
         if (Character.isUpperCase(ascii_after)){
             //if it exceeds Z it returns to A
@@ -46,6 +56,7 @@ public class Checker {
 
     public boolean identical(String username , String password){
         if(db.FindUser(username)){
+            setUserX(db.getUserX());
             String savedPass = db.getUserX().getPassword();
             if(Decryption(savedPass).equals(password)){
                 return true;

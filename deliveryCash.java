@@ -4,14 +4,15 @@ import Users.*;
 
 public class deliveryCash {
     private String phoneNO;
-private loggedUser userX = new loggedUser();
+    private loggedUser userX = new loggedUser();
 
     public String getPhoneNO() {
         return phoneNO;
     }
 
-    public void setPhoneNO(String phoneNO) {
-        this.phoneNO = userX.getPhoneNO();
+    public void setPhoneNO(String phoneNO,loggedUser userX) {
+        setUserX(userX);
+        this.phoneNO =phoneNO ;
     }
 
     public void setUserX(loggedUser userX) {

@@ -16,12 +16,14 @@ public class Payment {
     private Cart cart = new Cart();
     private loggedUser userX = new loggedUser();
     
+   
     
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(String address,loggedUser userx) {
+        setUserX(userx);
         this.address = address;
     }
 
@@ -81,12 +83,7 @@ public class Payment {
     //        return false;
     //}
     
-    public boolean checkUser(loggedUser userx){
-        if(userx.getUserName()!=""){
-            return true;
-        }else
-           return false;
-    }
+
     
     public void setUserX(loggedUser userX) {
         this.userX.setID(userX.getID());

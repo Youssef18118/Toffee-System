@@ -13,6 +13,11 @@ public class Bill {
     private loggedUser userX = new loggedUser();
     
 
+    
+    public void Done(loggedUser userx){
+        this.userX = userx;
+    }
+    
     public Bill(){
         orderNO++;
     }

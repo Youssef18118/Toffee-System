@@ -12,13 +12,14 @@ import java.util.ArrayList;
 
 import Shopping.Item;
 import Users.loggedUser;
+import payment.LoyalityPoint;
 
 
 public class Database {
 
     private ArrayList<Item> All_items = new ArrayList<>();
     private loggedUser userX = new loggedUser();
-
+    private LoyalityPoint loy =new LoyalityPoint();
 
     private boolean checkFileExists(File file) {
         return file.exists() && file.isFile();
@@ -118,8 +119,7 @@ public class Database {
         this.userX.setPhoneNO(phone);
         this.userX.setAddress(address);
         this.userX.setPassword(pass);
-        this.userX.getLoyalityPoints().setPoints(loy);
-        
+        this.loy.setPoints(0);
     }
 
     public loggedUser getUserX() {
