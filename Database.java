@@ -1,9 +1,6 @@
-package Register_Login;
+package TSystem;
 
-/**
- *
- * @author Aya_Ashraf
- */
+import Register_Login.Register;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
