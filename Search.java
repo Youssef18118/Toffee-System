@@ -9,8 +9,17 @@ import java.util.Scanner;
 public class Search {
     private ArrayList<Item> items;
     private Database db = new Database();
-    private Cart c = new Cart();
+    private Cart cart = new Cart();
     private loggedUser userX = new loggedUser();
+    Scanner in = new Scanner(System.in);
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public void DisplayResult(ArrayList<Item> items) {
         Formatter formatter = new Formatter();
@@ -46,11 +55,10 @@ public class Search {
                 item.viewItem();
                 found = true;
                 System.out.println("Do you want to add this item to the cart? 1 -> Yes, 2 -> No");
-
-                Scanner in = new Scanner(System.in);
                 int response = in.nextInt();
                 if (response == 1) {
-                    c.addToCart(userX, item);
+                    cart.addToCart(userX, item);
+                    cart.ViewCart(userX);
                 } else {
                     break;
                 }
