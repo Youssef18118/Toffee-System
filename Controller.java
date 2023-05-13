@@ -1,21 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package TSystem;
 import Register_Login.Login;
 import Register_Login.Register;
+import Shopping.Cart;
 import Shopping.Category;
 import Shopping.Search;
 import Users.loggedUser;
 import java.util.*;
 
 
-
-/**
- *
- * @author Boda_Tarek
- */
 public class Controller {
     
     Register reg = new Register();
@@ -25,8 +18,16 @@ public class Controller {
     Scanner in = new Scanner(System.in);
     Login log = new Login();
     private loggedUser userX = new loggedUser();
+    private Cart cart = new Cart();
 
-    
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
     
     public loggedUser getUserX() {
         return userX;
@@ -62,7 +63,7 @@ public class Controller {
         OTP = in.next();
 
         while(!check.checkOTP(otp.getOTP(),OTP)){
-            System.out.println("The OTP is Wrong Write another Email or 'q' for Exit ---> " + otp.getOTP() + " ----->" + OTP );
+            System.out.println("The OTP is Wrong Write another Email or 'q' for Exit");
             System.out.print("Email : ");
             email = in.next();
             System.out.print("Ener the OTP whice send in your email : ");
@@ -132,6 +133,7 @@ public class Controller {
             return false;
         } else {
             search.SelectItem(num, getUserX());
+            setCart(search.getCart());
         }
         return true;
     }
@@ -156,8 +158,12 @@ public class Controller {
             }
             else{
                 catg.selectItem(num , id);
+                setCart(catg.getCart());
+                
             }
         }
         return true;
     }
+    
+    
 }
